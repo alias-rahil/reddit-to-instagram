@@ -1,0 +1,48 @@
+{
+  "name": "reddit-to-instagram",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "automatically posts memes from reddit to instagram",
+  "main": "src/index.js",
+  "author": {
+    "email": "rahil.kabani.4@gmail.com",
+    "name": "Rahil Kabani",
+    "url": "https://alias-rahil.github.io/"
+  },
+  "private": true,
+  "scripts": {
+    "start": "node src/index.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "dev": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alias-rahil/reddit-to-instagram.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alias-rahil/reddit-to-instagram/issues"
+  },
+  "homepage": "https://github.com/alias-rahil/reddit-to-instagram#readme",
+  "dependencies": {
+    "@sujalgoel/reddit-image": "^1.1.1",
+    "axios": "^0.21.1",
+    "dotenv": "^8.2.0",
+    "instagram-private-api": "^1.43.3",
+    "node-schedule": "^1.3.2",
+    "shuffle-array": "^1.0.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  },
+  "devDependencies": {
+    "eslint": "^7.18.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "husky": "^4.3.8",
+    "nodemon": "^2.0.7"
+  }
+}
