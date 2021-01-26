@@ -26,12 +26,10 @@
   },
   "homepage": "https://github.com/alias-rahil/reddit-to-instagram#readme",
   "dependencies": {
-    "@sujalgoel/reddit-image": "^1.1.1",
     "axios": "^0.21.1",
     "dotenv": "^8.2.0",
     "instagram-private-api": "^1.43.3",
-    "node-schedule": "^1.3.2",
-    "shuffle-array": "^1.0.1"
+    "node-schedule": "^1.3.2"
   },
   "husky": {
     "hooks": {

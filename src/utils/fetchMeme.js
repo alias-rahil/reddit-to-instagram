@@ -1,26 +1,19 @@
-import redditimage from '@sujalgoel/reddit-image';
-import { subreddit, posts } from '../misc/constants.js';
+import axios from 'axios';
+import { subreddit, posts, api } from '../misc/constants.js';
+import sample from './sample.js';
 
-function verifyImage(image) {
-	return image.slice(-4) === '.jpg' && !posts.includes(image);
+function updatePostsArray(title, author, url) {
+	posts.push(url);
+	return { title, author, url };
 }
 
 export default async function fetchMeme() {
-	let titleFinal;
-	let authorFinal;
-	let imageFinal;
-	while (!imageFinal) {
-		// eslint-disable-next-line no-await-in-loop
-		const { title, author, image } = (await redditimage.fetch({
-			type: 'custom',
-			subreddit,
-		}))[0];
-		if (verifyImage(image)) {
-			posts.push(image);
-			titleFinal = title;
-			authorFinal = author;
-			imageFinal = image;
-		}
+	try {
+		const { data } = await axios.get(api.replace('%sub%', sample(subreddit, 1)[0]));
+		const postArray = data.data.children;
+		const { title, author, url } = sample(postArray, 1)[0].data;
+		return posts.includes(url) ? fetchMeme() : updatePostsArray(title, author, url);
+	} catch {
+		return { title: null, author: null, url: null };
 	}
-	return { titleFinal, authorFinal, imageFinal };
 }

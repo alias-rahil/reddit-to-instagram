@@ -1,11 +1,11 @@
-import shuffleArray from 'shuffle-array';
-import { username, hashtagDump, captionTemplate } from '../misc/constants.js';
+import sample from './sample.js';
+import { instaUsername, hashtagDump, captionTemplate } from '../misc/constants.js';
 
 export default function generateCaption(title, author) {
-	const hashtags = shuffleArray.pick(hashtagDump, { picks: 30 });
+	const hashtags = sample(hashtagDump, 30);
 	const finalCaption = captionTemplate
 		.replace('%hashtags%', hashtags.join(' '))
-		.replace('%username%', username)
+		.replace('%instaUsername%', instaUsername)
 		.replace('%title%', title)
 		.replace('%author%', author);
 
