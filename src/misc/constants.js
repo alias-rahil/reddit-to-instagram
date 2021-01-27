@@ -7,6 +7,8 @@ const subreddit = [
 	'dankmemes',
 	'depression_memes',
 	'offensivejokes',
+	'wholesomememes',
+	'meme',
 ];
 const captionTemplate = `%title%
 Credits: u/%author%
