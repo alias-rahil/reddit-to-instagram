@@ -1,10 +1,14 @@
 import './misc/dotenv.js';
 import nodeSchedule from 'node-schedule';
-import { postSchedule, clearArraySchedule, posts } from './misc/constants.js';
 import postInsta from './utils/postInsta.js';
+import {
+	postSchedule, clearArraySchedule, posts, maxRandomDelay,
+} from './misc/constants.js';
+
+import getRandomArbitrary from './utils/getRandomArbitrary.js';
 
 nodeSchedule.scheduleJob(postSchedule, () => {
-	postInsta();
+	setTimeout(postInsta, getRandomArbitrary(0, maxRandomDelay));
 });
 
 nodeSchedule.scheduleJob(clearArraySchedule, () => {

@@ -25,6 +25,7 @@ Follow @%instaUsername%
 %hashtags%`;
 const posts = [];
 const api = 'https://api.reddit.com/r/%sub%';
+const maxRandomDelay = 3600000;
 
 export {
 	captionTemplate,
@@ -36,4 +37,5 @@ export {
 	posts,
 	clearArraySchedule,
 	api,
+	maxRandomDelay,
 };
