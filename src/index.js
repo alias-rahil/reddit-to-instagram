@@ -1,15 +1,25 @@
 import './misc/dotenv.js';
 import nodeSchedule from 'node-schedule';
 import postInsta from './utils/postInsta.js';
+import followUnfollowUsers from './utils/followUnfollowUsers.js';
 import getRandomArbitrary from './utils/getRandomArbitrary.js';
 import {
-	postSchedule, clearArraySchedule, posts, maxRandomDelay,
+	postSchedule,
+	clearArraySchedule,
+	posts,
+	maxPostDelay,
+	followSchedule,
+	maxFollowDelay,
 } from './misc/constants.js';
 
 nodeSchedule.scheduleJob(postSchedule, () => {
-	setTimeout(postInsta, getRandomArbitrary(0, maxRandomDelay));
+	setTimeout(postInsta, getRandomArbitrary(0, maxPostDelay));
 });
 
 nodeSchedule.scheduleJob(clearArraySchedule, () => {
 	posts.length = 0;
+});
+
+nodeSchedule.scheduleJob(followSchedule, () => {
+	setTimeout(followUnfollowUsers, getRandomArbitrary(0, maxFollowDelay));
 });
