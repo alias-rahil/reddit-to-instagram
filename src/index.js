@@ -10,6 +10,7 @@ import {
 	maxPostDelay,
 	followSchedule,
 	maxFollowDelay,
+	doFollowUnfollow,
 } from './misc/constants.js';
 
 nodeSchedule.scheduleJob(postSchedule, () => {
@@ -20,6 +21,8 @@ nodeSchedule.scheduleJob(clearArraySchedule, () => {
 	posts.length = 0;
 });
 
-nodeSchedule.scheduleJob(followSchedule, () => {
-	setTimeout(followUnfollowUsers, getRandomArbitrary(0, maxFollowDelay));
-});
+if (doFollowUnfollow) {
+	nodeSchedule.scheduleJob(followSchedule, () => {
+		setTimeout(followUnfollowUsers, getRandomArbitrary(0, maxFollowDelay));
+	});
+}
