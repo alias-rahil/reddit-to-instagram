@@ -1,14 +1,7 @@
-import {
-	IgApiClient,
-} from 'instagram-private-api';
-
-import {
-	instaUsername,
-	instaPassword,
-} from '../misc/constants.js';
+import { IgApiClient } from 'instagram-private-api';
+import { instaUsername, instaPassword } from '../misc/constants.js';
 
 const ig = new IgApiClient();
-
 (async () => {
 	try {
 		ig.state.generateDevice(instaUsername);
@@ -18,9 +11,7 @@ const ig = new IgApiClient();
 		console.error({
 			message: e.message,
 		});
-
 		process.exit(1);
 	}
 })();
-
 export default ig;

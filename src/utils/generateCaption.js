@@ -1,5 +1,4 @@
 import sample from './sample.js';
-
 import {
 	instaUsername,
 	hashtagDump,
@@ -13,6 +12,5 @@ export default function generateCaption(title, author) {
 		.replace('%instaUsername%', instaUsername)
 		.replace('%title%', title)
 		.replace('%author%', author);
-
 	return finalCaption;
 }

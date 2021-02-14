@@ -1,8 +1,5 @@
 import mongoose from 'mongoose';
-
-import {
-	dbURL,
-} from './constants.js';
+import { dbURL } from './constants.js';
 
 mongoose
 	.connect(dbURL, {
@@ -14,6 +11,5 @@ mongoose
 		console.error({
 			message: e.message,
 		});
-
 		process.exit(1);
 	});
