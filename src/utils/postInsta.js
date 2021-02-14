@@ -14,7 +14,7 @@ export default async function postInsta() {
 			caption,
 		});
 	} catch (e) {
-		if (e.message === 'POST /api/v1/media/configure/ - 400 Bad Request; Uploaded image isn\'t in an allowed aspect ratio') {
+		if (e.message === "POST /api/v1/media/configure/ - 400 Bad Request; Uploaded image isn't in an allowed aspect ratio") {
 			postInsta();
 		} else {
 			console.error({ message: e.message });
