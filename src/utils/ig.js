@@ -1,5 +1,11 @@
-import { IgApiClient } from 'instagram-private-api';
-import { instaUsername, instaPassword } from '../misc/constants.js';
+import {
+	IgApiClient,
+} from 'instagram-private-api';
+
+import {
+	instaUsername,
+	instaPassword,
+} from '../misc/constants.js';
 
 const ig = new IgApiClient();
 
@@ -9,7 +15,10 @@ const ig = new IgApiClient();
 		await ig.simulate.preLoginFlow();
 		await ig.account.login(instaUsername, instaPassword);
 	} catch (e) {
-		console.error({ message: e.message });
+		console.error({
+			message: e.message,
+		});
+
 		process.exit(1);
 	}
 })();

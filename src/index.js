@@ -3,8 +3,12 @@ import './misc/db.js';
 
 import nodeSchedule from 'node-schedule';
 import postInsta from './utils/postInsta.js';
-import followUnfollowUsers from './utils/followUnfollowUsers.js';
 import getRandomArbitrary from './utils/getRandomArbitrary.js';
+
+import {
+	followUsers,
+	unfollowUsers,
+} from './utils/followUnfollowUsers.js';
 
 import {
 	postSchedule,
@@ -26,6 +30,10 @@ nodeSchedule.scheduleJob(clearArraySchedule, () => {
 
 if (doFollowUnfollow) {
 	nodeSchedule.scheduleJob(followSchedule, () => {
-		setTimeout(followUnfollowUsers, getRandomArbitrary(0, maxFollowDelay));
+		setTimeout(followUsers, getRandomArbitrary(0, maxFollowDelay));
+	});
+
+	nodeSchedule.scheduleJob(followSchedule, () => {
+		setTimeout(unfollowUsers, getRandomArbitrary(0, maxFollowDelay));
 	});
 }
