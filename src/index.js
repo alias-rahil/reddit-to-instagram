@@ -3,7 +3,7 @@ import './misc/db.js';
 import nodeSchedule from 'node-schedule';
 import postInsta from './utils/postInsta.js';
 import { followUsers, unfollowUsers } from './utils/followUnfollowUsers.js';
-import { User } from './utils/models.js';
+import { Post } from './utils/models.js';
 import {
 	postSchedule,
 	clearArraySchedule,
@@ -13,7 +13,7 @@ import {
 
 nodeSchedule.scheduleJob(clearArraySchedule, async () => {
 	try {
-		await User.deleteMany();
+		await Post.deleteMany();
 	} catch (e) {
 		console.error({
 			message: e.message,

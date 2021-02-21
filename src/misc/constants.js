@@ -15,7 +15,7 @@ Follow @%instaUsername%
 .
 %hashtags%`;
 const api = 'https://api.reddit.com/r/%sub%';
-const postSchedule = '0 0 */2 * * *';
+const postSchedule = '30 0 */2 * * *';
 const clearArraySchedule = '0 0 0 * * SUN';
 const followSchedule = '0 */12 * * * *';
 const unfollowSchedule = '30 */12 * * * *';
