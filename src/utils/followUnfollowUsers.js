@@ -1,8 +1,7 @@
 import ig from './ig.js';
 import sample from './sample.js';
-import getRandomArbitrary from './getRandomArbitrary.js';
 import { User } from './models.js';
-import { hashtagDump, maxUnfollowDelay } from '../misc/constants.js';
+import { hashtagDump } from '../misc/constants.js';
 
 export async function followUsers() {
 	try {
@@ -22,15 +21,13 @@ export async function followUsers() {
 		});
 	}
 }
-export function unfollowUsers() {
-	setTimeout(async () => {
-		try {
-			const user = await User.findOneAndDelete();
-			await ig.friendship.destroy(user.pk);
-		} catch (e) {
-			console.error({
-				message: e.message,
-			});
-		}
-	}, getRandomArbitrary(0, maxUnfollowDelay));
+export async function unfollowUsers() {
+	try {
+		const user = await User.findOneAndDelete();
+		await ig.friendship.destroy(user.pk);
+	} catch (e) {
+		console.error({
+			message: e.message,
+		});
+	}
 }
